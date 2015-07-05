@@ -8,7 +8,7 @@ if (!isProduction) {
 
   // We require the bundler inside the if block because
   // it is only needed in a development environment.
-  var bundle = require('./backend/bundle.js');
+  var bundle = require('./bundler.js');
   bundle();
 
 }
