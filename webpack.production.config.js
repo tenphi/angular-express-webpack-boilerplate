@@ -59,7 +59,6 @@ var config = {
   plugins: [
     // We have to manually add the Hot Replacement plugin when running
     // from Node
-    new Webpack.HotModuleReplacementPlugin(),
     new ExtractTextPlugin("styles.css"),
     new Webpack.optimize.UglifyJsPlugin({ minimize: true }),
     new StatsPlugin(path.join(__dirname, 'stats.json'), { chunkModules: true })
