@@ -20,7 +20,7 @@ var config = {
     'webpack/hot/dev-server',
 
     // The script refreshing the browser on none hot updates
-    'webpack-dev-server/client?http://' + host + ':8080',
+    'webpack-dev-server/client?http://' + host + ':3001',
 
     // Our application
     entryPath
