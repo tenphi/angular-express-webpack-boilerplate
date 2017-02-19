@@ -33,18 +33,18 @@ var config = {
 
     loaders: [
       { test: /\.es6.js$/, loader: 'babel-loader' },
-      {
-        test: /\.css$/,
-        loader: 'style!css!postcss'
-      },
-      {
-        test: /\.less$/,
-        loader: 'style!css!postcss!less'
-      },
-      {
-        test: /\.html$/,
-        loader: 'html-loader'
-      },
+        {
+            test: /\.css$/,
+            loader: ExtractTextPlugin.extract('css?sourceMap!postcss-loader?sourceMap')
+        },
+        {
+            test: /\.less$/,
+            loader: ExtractTextPlugin.extract('css?sourceMap!postcss-loader?sourceMap!less?sourceMap')
+        },
+        {
+            test: /\.html$/,
+            loader: 'html-loader'
+        },
       {
         test: /\.(jpe?g|png|gif|svg)$/i,
         loaders: [
@@ -55,11 +55,12 @@ var config = {
 
     ]
   },
-  postcss: [autoprefixer],
+  postcss: [autoprefixer, csswring],
 
   plugins: [
     // We have to manually add the Hot Replacement plugin when running
     // from Node
+    new ExtractTextPlugin("styles.css"),
     new Webpack.HotModuleReplacementPlugin()
   ]
 };
